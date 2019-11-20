@@ -5,12 +5,12 @@
   - name: changing the owner
     win_owner:
       path: C:\Users\Administrator\Desktop\facts.txt
-      user: user_rajat
+      user: nazirah
       recurse: true
   - name: Giving full access
     win_acl:
       path: C:\Users\Administrator\Desktop\facts.txt
-      user: user_rajat
+      user: nazirah
       rights: Read,Write,Modify,FullControl,Delete
       type: allow
       state: present
