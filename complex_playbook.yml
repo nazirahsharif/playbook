@@ -16,7 +16,7 @@
       dest: C:\Inetpub\wwwroot\index.html
 
 - name: This is a second play
-  host: all
+  hosts: all
   tasks:
       - name: Creating a directory
         win_file:
