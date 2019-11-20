@@ -1,0 +1,17 @@
+---
+- name: Change permission User for a file
+  hosts: all
+    - name: Set the owner of root directory
+      win_owner:
+         path: C:\foo.conf
+         user: SYSTEM
+         recurse: no
+    - name: Create User grant Full Control
+      win_acl:
+          path: C:\foo.conf
+          user: nazirah
+          rights: FullControl
+          type: allow
+          state: present
+          inherit: ContainerInherit, ObjectInherit
+          propagation: 'None'
