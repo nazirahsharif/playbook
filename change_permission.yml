@@ -2,23 +2,23 @@
 - name: Permission
   hosts: all
   tasks:
-    - name: Ensure user is present
-      win_user:
-         name: nazirah
-         state: present
-         groups:
-            - Users
-    - name: Set the owner of root directory
-      win_owner:
-         path: C:\foo.conf
-         user: nazirah
-         recurse: true
-    - name: User grant Full Control
-      win_acl:
-          path: C:\foo.conf
-          user: nazirah
-          rights: FullControl
-          type: allow
-          state: present
-          inherit: ContainerInherit, ObjectInherit
-          propagation: 'None'
+  - name: Ensure user is present
+    win_user:
+        name: nazirah
+        state: present
+        groups:
+          - Users
+  - name: Set the owner of root directory
+    win_owner:
+        path: C:\foo.conf
+        user: nazirah
+        recurse: true
+  - name: User grant Full Control
+    win_acl:
+        path: C:\foo.conf
+        user: nazirah
+        rights: FullControl
+        type: allow
+        state: present
+        inherit: ContainerInherit, ObjectInherit
+        propagation: 'None'
