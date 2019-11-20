@@ -1,12 +1,19 @@
 ---
-- name: Change permission User for a file
+- name: Permission
   hosts: all
+  tasks:
+    - name: Ensure user is present
+      win_user:
+         name: nazirah
+         state: present
+         groups:
+            - Users
     - name: Set the owner of root directory
       win_owner:
          path: C:\foo.conf
          user: nazirah
-         recurse: no
-    - name: Create User grant Full Control
+         recurse: true
+    - name: User grant Full Control
       win_acl:
           path: C:\foo.conf
           user: nazirah
