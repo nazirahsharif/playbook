@@ -4,7 +4,7 @@
     - name: Set the owner of root directory
       win_owner:
          path: C:\foo.conf
-         user: SYSTEM
+         user: nazirah
          recurse: no
     - name: Create User grant Full Control
       win_acl:
